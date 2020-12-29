@@ -19,8 +19,7 @@ jobs:
         with:
           message: 'Add the version and date'
           add: '*.json --force'
-          cwd: './new/'  
+          cwd: './new/' 
+          run: ls 
           token: ${{ secrets.TOKEN }} 
-      - name: Work dir
-        working-directory: ./new
-        run: ls    
+        
