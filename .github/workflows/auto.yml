@@ -12,9 +12,9 @@ jobs:
           
       - run: |
           ls
-          echo "`jq '.base_config[0].value="Alpha-19"' ./new/config.json `" > ./new/config.json
-          echo "`jq '.base_config[1].value="1.2.14"' ./new/config.json `" > ./new/config.json
-          echo "`jq '.base_config[2].value="29/12/2020"' ./new/config.json `" > ./new/config.json
+          echo "`jq '.base_config[0].value="Alpha-19"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
+          echo "`jq '.base_config[1].value="1.2.14"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
+          echo "`jq '.base_config[2].value="29/12/2020"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
      
       - uses: EndBug/add-and-commit@v6
         with:
