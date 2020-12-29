@@ -1,0 +1,20 @@
+on: [push, pull_request]
+name: Build
+jobs:
+  build:
+    name: Example
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with: 
+          path: './new/'
+      - run: |
+          echo "`jq '.base_config[0].value="Alpha-19"' config.json`" > ./new/config.json
+          echo "`jq '.base_config[1].value="1.2.14"' config.json`" > ./new/config.json
+          echo "`jq '.base_config[2].value="29/12/2020"' config.json`" > ./new/config.json
+      - uses: EndBug/add-and-commit@v6
+        with:
+          message: 'Add the version and date'
+          add: '*.json --force'
+          cwd: './new/'  
+          token: ${{ secrets.TOKEN }} 
