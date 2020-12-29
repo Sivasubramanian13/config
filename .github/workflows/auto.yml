@@ -19,6 +19,6 @@ jobs:
         with:
           message: 'Add the version and date'
           add: '*.json --force'
-          cwd: '../new/' 
+          cwd: './config/new/' 
           token: ${{ secrets.TOKEN }} 
         
