@@ -9,12 +9,11 @@ jobs:
     steps:
      
       - uses: actions/checkout@v2
-      
         with: 
           path: './'
           
       - run: |
-          echo ${{env.VALUE_NUM+1}}
+          echo ${{ env.VALUE_NUM }}
           echo "`jq '.base_config[0].value="Alpha-21"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
           echo "`jq '.base_config[1].value="1.2.14"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
           echo "`jq '.base_config[2].value="29/12/2020"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
