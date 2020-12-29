@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with: 
-          path: './'
+          path: './new/'
       - run: |
           echo "`jq '.base_config[0].value="Alpha-19"' config.json `" > config.json
           echo "`jq '.base_config[1].value="1.2.14"' config.json `" > config.json
@@ -16,5 +16,5 @@ jobs:
         with:
           message: 'Add the version and date'
           add: '*.json --force'
-          cwd: './'  
+          cwd: './new/'  
           token: ${{ secrets.TOKEN }} 
