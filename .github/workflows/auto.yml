@@ -8,8 +8,9 @@ jobs:
       - uses: actions/checkout@v2
         with: 
           path: './new/'
+          SOURCE_DIR: "./new/"
       - run: |
-          echo "`jq '.base_config[0].value="Alpha-19"' ./new/config.json `" > config.json
+          echo "`jq '.base_config[0].value="Alpha-19"' config.json `" > config.json
           echo "`jq '.base_config[1].value="1.2.14"' config.json `" > config.json
           echo "`jq '.base_config[2].value="29/12/2020"' config.json `" > config.json
       - uses: EndBug/add-and-commit@v6
