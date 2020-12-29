@@ -11,6 +11,8 @@ jobs:
         with: 
           path: './'      
       - run: |
+          echo $(date +'%Y-%m-%d')
+          date +'%Y-%m-%d'
           echo "`jq '.base_config[0].value="Alpha-21"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
           echo "`jq '.base_config[1].value="1.2.14"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
           echo "`jq '.base_config[2].value=$(date +'%Y-%m-%d')' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
