@@ -1,0 +1,187 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Technical Architecture
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+    <div class="container">
+      <div class="row">
+        <div class="col-header col-md-4 col-lg-4 col-sm-6">
+          Client Properties
+        </div>
+        <div class="col-header col-md-4 col-lg-4 col-sm-6">
+          Server Properties
+        </div>
+        <div class="col-header col-md-4 col-lg-4 col-sm-6">
+          Deployment
+        </div>
+      </div>
+      <!-- first -->
+      <!-- <form [formGroup]="technicalForm"> -->
+      <div class="row">
+        <div class="techDropdown col-md-4 col-lg-4 col-sm-6">
+          <mat-form-field>
+            <mat-label>Client Development Languages</mat-label>
+            <mat-select [(ngModel)]="selected.clientLanguage" (ngModelChange)="onChange($event)"
+              [compareWith]="compareById">
+              <mat-option *ngFor="let clientlanguage of technical.clientLanguage" [value]="clientlanguage">
+                {{clientlanguage.label}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+              <!-- <label for="client-language">Client Development Languages</label>
+            <select class="form-control" [(ngModel)]="clientLanguage" id="client-language">
+              <option value="" selected>none</option>
+              <option value="english">English</option>
+              <option value="tamil">Tamil</option>
+              <option value="spanish">Spanish</option>
+            </select> -->
+        </div>
+        <div class="techDropdown col-md-4 col-lg-4 col-sm-6">
+          <mat-form-field>
+            <mat-label>Server Development Language</mat-label>
+            <mat-select [(ngModel)]="selected.serverLanguage" (ngModelChange)="onChange($event)"
+              [compareWith]="compareById">
+              <mat-option *ngFor="let serverlanguage of technical.serverLanguage" [value]="serverlanguage">
+                {{serverlanguage.label}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="techDropdown col-md-4 col-lg-4 col-sm-6">
+          <mat-form-field>
+            <mat-label>Deployment Target</mat-label>
+            <mat-select [(ngModel)]="selected.deploymentTarget" (ngModelChange)="onChange($event)"
+              [compareWith]="compareById">
+              <mat-option *ngFor="let target of technical.deploymentTarget" [value]="target">
+                {{target.label}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- second -->
+      <div class="row">
+        <div class="techDropdown col-md-4 col-lg-4 col-sm-6">
+          <mat-form-field>
+            <mat-label>Client Development Frameworks</mat-label>
+            <mat-select [(ngModel)]="selected.clientFramework" (ngModelChange)="onChange($event)"
+              [compareWith]="compareById">
+              <mat-option *ngFor="let clientframework of technical.clientFramework" [value]="clientframework">
+                {{clientframework.label}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="techDropdown col-md-4 col-lg-4 col-sm-6">
+          <mat-form-field>
+            <mat-label>Server Development Framework</mat-label>
+            <mat-select [(ngModel)]="selected.serverFramework" (ngModelChange)="onChange($event)"
+              [compareWith]="compareById">
+              <mat-option *ngFor="let serverframework of technical.serverFramework" [value]="serverframework">
+                {{serverframework.label}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="techDropdown col-md-4 col-lg-4 col-sm-6">
+          <mat-form-field>
+            <mat-label>Deployment Server</mat-label>
+            <mat-select [(ngModel)]="selected.deploymentServer" (ngModelChange)="onChange($event)"
+              [compareWith]="compareById">
+              <mat-option *ngFor="let deploymentserver of technical.deploymentServer" [value]="deploymentserver">
+                {{deploymentserver.label}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- third -->
+      <div class="row">
+        <div class="techDropdown col-md-4 col-lg-4 col-sm-6">
+
+        </div>
+        <div class="techDropdown col-md-4 col-lg-4 col-sm-6">
+          <mat-form-field>
+            <mat-label>DataBase</mat-label>
+            <mat-select [(ngModel)]="selected.database" (ngModelChange)="onChange($event)" [compareWith]="compareById">
+              <mat-option *ngFor="let database of technical.database" [value]="database">
+                {{database.label}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="techDropdown col-md-4 col-lg-4 col-sm-6">
+
+        </div>
+      </div>
+      <!-- </form> -->
+    </div>
+    <div style="padding-right: 20px; display: flex; justify-content: flex-end;">
+        <button class="generateEntityButton" mat-raised-button color="primary" (click)="generateField()">Export
+          Project</button>
+  </div>
+</mat-expansion-panel>
+
+<!-- <modal id="add-prop">
+  <div class="modal">
+    <div class="modal-body">
+      <form class="m-3" [formGroup]="connectorForm">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="name">{{'name'| i18next}}</label>
+              <input type="text" class="form-control" placeholder="enter Dev Framework" id="name"
+                [(ngModel)]="connector.name" formControlName="name"
+                [ngClass]="{ 'is-invalid': submitted && form_control.name.errors }">
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="description">{{'description'| i18next}}</label>
+              <input type="text" class="form-control" placeholder="enter Dev Framework" id="description"
+                [(ngModel)]="connector.description" formControlName="description"
+                [ngClass]="{ 'is-invalid': submitted && form_control.description.errors }">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="url">{{'url'| i18next}}</label>
+              <input type="text" class="form-control" placeholder="enter Dev Framework" id="url"
+                [(ngModel)]="connector.url" formControlName="url"
+                [ngClass]="{ 'is-invalid': submitted && form_control.url.errors }">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-12">
+              <button class="btn btn-primary" type="button" (click)="addProperties()">Add</button>
+              <div formArrayName="properties"
+                *ngFor="let properties of connectorForm.get('properties').controls; let i = index;">
+                <div [formGroupName]="i">
+                  <label for="key">{{'description'| i18next}}</label>
+                  <input type="text" class="form-control" formControlName="key" placeholder="Item name">
+                  <label for="value">{{'description'| i18next}}</label>
+                  <input type="text" class="form-control" formControlName="value" placeholder="Item name">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="modal-footer">
+        <div class="form-group">
+          <button type="button" class="btn button-create"
+            (click)="addDefaultConnector()">{{ 'create' | i18next }}</button>
+          <button type="button" class="btn button-close"
+            (click)="closeModal('add-prop')">{{ 'cancel' | i18next }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</modal> -->

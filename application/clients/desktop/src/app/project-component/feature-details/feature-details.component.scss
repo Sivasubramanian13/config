@@ -1,0 +1,310 @@
+.modal {
+    text-align: center;
+  }
+  
+  @media screen and (min-width: 768px) { 
+    .modal:before {
+      display: inline-block;
+      vertical-align: middle;
+      content: " ";
+      height: 100%;
+    }
+  }
+  
+  .modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+  }   
+
+  .modal-dialog {
+    position: relative;
+    width: 81% !important ;
+    margin: 0.5rem;
+    pointer-events: none;
+}
+
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    padding: 1rem;
+    border-top: 1px solid #ffffff !important;
+    border-bottom-right-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+}
+
+  .img_size{
+    width:80%;
+  }
+  
+.image {
+  width: auto;
+  height: 100px;
+  margin-top: 10%;
+  border-radius: 8px;
+  color: #184573;
+}
+.fa.fa-pencil-square-o{
+  position: absolute;
+  top: 100%;
+  right: 83%;
+  color: green;
+  cursor: pointer;
+}
+.fa.fa-trash-o{
+  position: absolute;
+  top: 100%;
+  right: 51%;
+  color: red;
+  cursor: pointer;
+}
+.desktop_only{
+  right:40% !important;
+}
+
+
+.entity-card {
+  max-width: 300px;
+  }
+  
+  .createEntityButton {
+  float: right;
+  }
+  
+  .goToButton {
+  background-color: green;
+  color: white;
+  }
+  
+  :host ::ng-deep .ck-editor__editable {
+  min-height: 200px !important;
+  }
+  .modal-dialog{
+  overflow-y: initial !important
+  }
+  .feature .modal-body{
+  height: 400px;
+  overflow-y: auto;
+  }  
+
+
+.image {
+  width: auto;
+  height: 100px;
+  margin-top: 10%;
+  border-radius: 8px;
+  color: #184573;
+}
+
+  .fa.fa-pencil-square-o{
+    position: absolute;
+    top: 100%;
+    right: 83%;
+    color: green;
+    cursor: pointer;
+  }
+  .fa.fa-trash-o{
+    position: absolute;
+    top: 100%;
+    right: 51%;
+    color: red;
+    cursor: pointer;
+  }
+
+  .delete .modal-body {
+  height: 70px;
+  overflow-y: auto;
+  }
+  .btn-space {
+    margin: 6px;
+}
+
+  .example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  }
+  
+  .example-radio-button {
+  margin: 5px;
+  }
+
+.code {
+  padding-right: 20px;
+  margin-right: -38px;
+}
+.screen_text{
+  position: absolute;
+  margin-left: 2%;
+}
+
+.mobile-screen-text{
+  position: absolute;
+  left: 2%;
+  font-size: 20px !important;
+  top: 2%;
+}
+.top_align{
+  margin-bottom: 6%;
+}
+.img_size{
+  width:80%;
+}
+
+.bottom_padding{
+  margin-bottom: 5%;
+}
+.entity-card {
+  max-width: 300px;
+  }
+  
+  .createEntityButton {
+  float: right;
+  }
+  
+  .goToButton {
+  background-color: green;
+  color: white;
+  }
+  
+  :host ::ng-deep .ck-editor__editable {
+  min-height: 200px !important;
+  }
+  .modal-dialog{
+  overflow-y: initial !important
+  }
+  .feature .modal-body{
+  height: 400px;
+  overflow-y: auto;
+  }  
+
+
+.image {
+  width: auto;
+  height: 100px;
+  margin-top: 10%;
+  border-radius: 8px;
+  color: #184573;
+}
+
+  .fa.fa-pencil-square-o{
+    position: absolute;
+    top: 100%;
+    right: 83%;
+    color: green;
+    cursor: pointer;
+  }
+  .fa.fa-trash-o{
+    position: absolute;
+    top: 100%;
+    right: 51%;
+    color: red;
+    cursor: pointer;
+  }
+
+  .delete .modal-body {
+  height: 70px;
+  overflow-y: auto;
+  }
+  .btn-space {
+    margin: 6px;
+}
+
+  .example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  }
+  
+  .example-radio-button {
+  margin: 5px;
+  }
+
+.code {
+  padding-right: 20px;
+  margin-right: -38px;
+}
+.screen_text{
+  position: absolute;
+  margin-left: 2%;
+}
+
+.mobile-screen-text{
+  position: absolute;
+  left: 2%;
+  font-size: 20px !important;
+  top: 2%;
+}
+.top_align{
+  margin-bottom: 6%;
+  margin-top: 3%;
+}
+.img_size{
+  width:80%;
+}
+
+.bottom_padding{
+  margin-bottom: 5%;
+}
+.btn_color{
+  background-color: #033668;
+  border-bottom: 3px solid #033668; 
+}
+.btn_color:hover{
+  background-color: #39a521;
+  border-bottom: 3px solid #2d831a; 
+}
+.btn-space{
+  margin-right: 5%;
+}
+.flow_popup{
+  vertical-align:top;
+    min-width: 50%;
+    margin-top: 1%;
+}
+.component_top{
+  margin-bottom: 6%;
+}
+
+#AddConnector{
+  background-color: #033668;
+  border-bottom: 3px solid #033668;
+  color:white;
+}
+
+#update{
+  color:white;
+}
+
+.modal-connector {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 86%;
+  margin-left: 7%;
+  margin-top: -4%;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  outline: 0;
+}
+
+.connetor-Header {
+  background-color: rgba(0, 0, 0, .15);
+    border-bottom: none;
+    display: flex;
+    align-items: center !important;
+    justify-content: center;
+    padding: 1rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+
+}
+
+
+
+
