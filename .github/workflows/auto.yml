@@ -8,7 +8,7 @@ jobs:
      
       - uses: actions/checkout@v2
         with: 
-          path: './new/'
+          path: './'
           
       - run: |
           ls
@@ -20,6 +20,6 @@ jobs:
         with:
           message: 'Add the version and date'
           add: '*.json --force'
-          cwd: './' 
+          cwd: './new/' 
           token: ${{ secrets.TOKEN }} 
         
