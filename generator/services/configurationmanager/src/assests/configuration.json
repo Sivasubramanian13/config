@@ -4,7 +4,7 @@
       "name": "version",
       "label": "",
       "description": "app version",
-      "value": "Alpha-19",
+      "value": "Alpha-$(($value+1))",
       "type": "version",
       "sub_type": ""
     },
