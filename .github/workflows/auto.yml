@@ -1,6 +1,6 @@
 on: [push, pull_request]
 env:
-  VALUE_NUM: ${{ 19 }}
+  VALUE_NUM: ${{ Alpha-19 }}
 name: Build
 jobs:
   build:
