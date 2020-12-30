@@ -1,4 +1,3 @@
-
 {
   "base_config": [
     {
@@ -21,7 +20,7 @@
       "name": "build_date",
       "label": "",
       "description": "build Date",
-      "value": "29/12/2020",
+      "value": 1978,
       "type": "date",
       "sub_type": ""
     },
