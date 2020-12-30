@@ -16,6 +16,8 @@ jobs:
           path: './'         
       - name: JSON value
         id: json
+        env:
+          json-access: ${{ secrets.TOKEN_SCOPE }} 
         run: |
           echo "::set-output name=JSON_VALUE::$( ./config.json | jq '.base_config[0].value')" 
       - name: Check
