@@ -18,6 +18,7 @@ jobs:
         run: |
           echo data=$(cat ./config.json  | jq '.')
           echo value=$(echo $data | jq '.base_config[0].value')
+          echo $value
   
       - uses: actions/checkout@v2
         with: 
