@@ -23,7 +23,7 @@ jobs:
           content="${content//$'\r'/'%0D'}"
           echo "::set-output name=Json::$content"   
       - run: |
-          echo "${{(steps.json.outputs.Json).value[0] }}"
+          echo "${{(steps.json.outputs.Json).base_config[0].value }}"
   
       - uses: actions/checkout@v2
         with: 
