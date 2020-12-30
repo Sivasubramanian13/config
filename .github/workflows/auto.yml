@@ -12,10 +12,13 @@ jobs:
         run: |
           echo ${{ steps.ec2.outputs.DATE_NOW }}
       - name: JSON value
-        run: echo "::set-output name=JSON_VALUE::$( config.json | jq '.base_config[0].value')"
-        id: json   
-      - name: Value
-        run: echo ${{ steps.json.outputs.JSON_VALUE }}
+        id: json
+        run: |
+          content= cat ./generator/services/configurationmanager/src/assests/configuration.json
+          echo "::set-output name=Json::$content"   
+      - run: |
+          echo "${{ fromJson(steps.json.outputs.Json).value[0] }}"
+  
       - uses: actions/checkout@v2
         with: 
           path: './'      
