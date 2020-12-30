@@ -17,13 +17,9 @@ jobs:
       - name: JSON value
         id: json
         run: |
-          content= cat ./config.json
-          content="${content//'%'/'%27'}"
-          content="${content//$'\n'/'%0A'}"
-          content="${content//$'\r'/'%0D'}"
-          echo "::set-output name=Json::$content"   
+          echo "::set-output name=JSON_VALUE::$(./generator/services/configurationmanager/src/assests/configuration.json | jq'.base_config[0].value')" 
       - run: |
-          echo "${{(steps.json.outputs.Json).base_config[0].value }}"
+          echo "${{ steps.json.outputs.JSON_VALUE.base_config[0].value }}"
   
       - uses: actions/checkout@v2
         with: 
