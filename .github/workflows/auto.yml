@@ -16,7 +16,7 @@ jobs:
           path: './'    
       - name: Json
         run: |
-          echo data=$(cat ./config.json  | jq '.')
+          
           echo value=$(cat ./config.json | jq '.base_config[0].value')
           
   
@@ -24,9 +24,9 @@ jobs:
         with: 
           path: './'      
       - run: |          
-          echo "`jq '.base_config[0].value=$value' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
-          echo "`jq '.base_config[1].value="1.2.14"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
-          echo "`jq '.base_config[2].value="${{ steps.ec2.outputs.DATE_NOW }}"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
+          echo "`jq '.base_config[0].value="$value"' ./config.json `" > ./config.json 
+          echo "`jq '.base_config[1].value="1.2.14"' ./config.json `" > ./config.json 
+          echo "`jq '.base_config[2].value="${{ steps.ec2.outputs.DATE_NOW }}"' ./config.json `" > ./config.json 
      
       - uses: EndBug/add-and-commit@v6
         with:
