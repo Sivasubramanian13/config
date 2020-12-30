@@ -15,16 +15,16 @@ jobs:
         with: 
           path: './'    
       - name: Json
+        run: echo "::set-output name=JSON::$(cat ./config.json | jq '.base_config[0].value')
+        id: json
+      - name: Json check
         run: |
-          
-          echo value=$(cat ./config.json | jq '.base_config[0].value')
-          
-  
+            echo ${{ steps.json.outputs.JSON }}  
       - uses: actions/checkout@v2
         with: 
           path: './'      
       - run: |          
-          echo "`jq '.base_config[0].value="$value"' ./config.json `" > ./config.json 
+          echo "`jq '.base_config[0].value="${{ steps.json.outputs.JSON }}"' ./config.json `" > ./config.json 
           echo "`jq '.base_config[1].value="1.2.14"' ./config.json `" > ./config.json 
           echo "`jq '.base_config[2].value="${{ steps.ec2.outputs.DATE_NOW }}"' ./config.json `" > ./config.json 
      
