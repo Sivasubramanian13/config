@@ -1,6 +1,4 @@
 on: [push, pull_request]
-# env:
-#   VALUE_NUM: ${{  }} 
 name: Build
 jobs:
   build:
@@ -8,17 +6,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Variable
-        run: echo "::set-output name=DATE_NOW::$(date +'%Y-%m-%d')"
-        id: ec2
-  
+        run: echo "::set-output name=DATE_NOW::$(date +'%d-%m-%Y')"
+        id: ec2  
       - name: Check the date
         run: |
           echo ${{ steps.ec2.outputs.DATE_NOW }}
       - uses: actions/checkout@v2
         with: 
           path: './'      
-      - run: |
-          
+      - run: |          
           echo "`jq '.base_config[0].value="Alpha-21"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
           echo "`jq '.base_config[1].value="1.2.14"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
           echo "`jq '.base_config[2].value="${{ steps.ec2.outputs.DATE_NOW }}"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
