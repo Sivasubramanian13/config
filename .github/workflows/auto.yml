@@ -21,7 +21,7 @@ jobs:
           
           echo "`jq '.base_config[0].value="Alpha-21"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
           echo "`jq '.base_config[1].value="1.2.14"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
-          echo "`jq '.base_config[2].value=${{ steps.ec2.outputs.DATE_NOW }}' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
+          echo "`jq '.base_config[2].value="${{ steps.ec2.outputs.DATE_NOW }}"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
      
       - uses: EndBug/add-and-commit@v6
         with:
