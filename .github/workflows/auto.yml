@@ -1,6 +1,4 @@
 on: [push, pull_request]
-env:
-  json-access: ${{ secrets.TOKEN_SCOPE }} 
 name: Build
 jobs:
   build:
@@ -19,7 +17,7 @@ jobs:
       - name: Json
         id: json
         run: |
-          content = cat ./generator/services/configurationmanager/src/assests/configuration.json
+          content = `cat ./generator/services/configurationmanager/src/assests/configuration.json`
           echo "::set-output name=JSON_VALUE::$content"
       - run: |
           echo "${{fromJson(steps.set_var.outputs.JSON_VALUE).version}}"
