@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Variable
-        run: echo "::set-output name=DATE_NOW::$(date +'%d-%m-%Y')"
+        run: echo "::set-output name=DATE_NOW::$(date +'%d/%m/%Y')"
         id: ec2  
       - name: Check the date
         run: |
