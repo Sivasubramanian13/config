@@ -20,7 +20,7 @@ jobs:
           content= cat ./config.json
           echo "::set-output name=Json::$content"   
       - run: |
-          echo "${{ fromJson(steps.json.outputs.Json).value }}"
+          echo "${{ (steps.json.outputs.Json).value }}"
   
       - uses: actions/checkout@v2
         with: 
