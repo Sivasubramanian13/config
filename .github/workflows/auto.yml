@@ -15,11 +15,9 @@ jobs:
         with: 
           path: './'    
       - name: Json
-        id: json
-        run: echo "::set-output name=JSON_VALUE::$(./generator/services/configurationmanager/src/assests/configuration.json | jq'.base_config[0].value')"
-      - name: Json check
         run: |
-          echo "${{ steps.json.outputs.JSON_VALUE }}"
+          echo data=$(cat ./config.json  | jq '.')
+          echo value=$(echo $data | jq '.base_config[0].value')
   
       - uses: actions/checkout@v2
         with: 
