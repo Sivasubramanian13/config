@@ -11,6 +11,9 @@ jobs:
       - name: Check the date
         run: |
           echo ${{ steps.ec2.outputs.DATE_NOW }}
+      - uses: actions/checkout@v2
+        with: 
+          path: './'         
       - name: JSON value
         id: json
         run: |
