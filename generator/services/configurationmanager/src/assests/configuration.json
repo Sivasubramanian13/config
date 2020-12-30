@@ -20,7 +20,7 @@
       "name": "build_date",
       "label": "",
       "description": "build Date",
-      "value": "30-12-2020",
+      "value": "30/12/2020",
       "type": "date",
       "sub_type": ""
     },
