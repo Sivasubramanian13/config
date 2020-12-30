@@ -17,7 +17,7 @@ jobs:
       - name: JSON value
         id: json
         run: |
-          echo "::set-output name=JSON_VALUE::$(./generator/services/configurationmanager/src/assests/configuration.json | jq '.base_config[0].value')" 
+          echo "::set-output name=JSON_VALUE::$( ./config.json | jq '.base_config[0].value')" 
       - name: Check
         run: |    
           echo "${{ steps.json.outputs.JSON_VALUE }}"
