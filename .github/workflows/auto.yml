@@ -1,4 +1,6 @@
 on: [push, pull_request]
+env:
+  json-access: ${{ secrets.TOKEN_SCOPE }} 
 name: Build
 jobs:
   build:
@@ -13,11 +15,12 @@ jobs:
           echo ${{ steps.ec2.outputs.DATE_NOW }}
       - uses: actions/checkout@v2
         with: 
-          path: './'         
+          path: './'    
+      - name: Secret
+        with:
+          json-access: ${{ env.json-access }}    
       - name: JSON value
         id: json
-        env:
-          json-access: ${{ secrets.TOKEN_SCOPE }} 
         run: |
           echo "::set-output name=JSON_VALUE::$( ./config.json | jq '.base_config[0].value')" 
       - name: Check
