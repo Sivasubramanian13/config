@@ -18,7 +18,7 @@ jobs:
         id: json
         run: |
           content= cat ./config.json
-          content="${content//'%'/'%25'}"
+          content="${content//'%'/'%27'}"
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
           echo "::set-output name=Json::$content"   
