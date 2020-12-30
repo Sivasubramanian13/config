@@ -17,7 +17,7 @@ jobs:
       - name: check
         run:  echo value=$(cat ./config.json | jq '.base_config[0].value')   
       - name: Json
-        run: echo "::set-output name=JSON::$(cat ./config.json | jq '.base_config[0].value')"
+        run: echo "::set-output name=JSON::$value"
         id: json
       - name: Json check
         run: |
