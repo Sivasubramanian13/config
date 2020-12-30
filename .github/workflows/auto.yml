@@ -16,16 +16,13 @@ jobs:
       - uses: actions/checkout@v2
         with: 
           path: './'    
-      - name: Secret
-        with:
-          json-access: ${{ env.json-access }}    
-      - name: JSON value
+      - name: Json
         id: json
         run: |
-          echo "::set-output name=JSON_VALUE::$( ./config.json | jq '.base_config[0].value')" 
-      - name: Check
-        run: |    
-          echo "${{ steps.json.outputs.JSON_VALUE }}"
+          content = cat ./generator/services/configurationmanager/src/assests/configuration.json
+          echo "::set-output name=JSON_VALUE::$content"
+      - run: |
+          echo "${{fromJson(steps.set_var.outputs.JSON_VALUE).version}}"
   
       - uses: actions/checkout@v2
         with: 
