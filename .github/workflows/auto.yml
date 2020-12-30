@@ -13,7 +13,9 @@ jobs:
           echo ${{ steps.ec2.outputs.DATE_NOW }}
       - uses: actions/checkout@v2
         with: 
-          path: './'    
+          path: './' 
+      - name: check
+        run:  echo value=$(cat ./config.json | jq '.base_config[0].value')   
       - name: Json
         run: echo "::set-output name=JSON::$(cat ./config.json | jq '.base_config[0].value')"
         id: json
