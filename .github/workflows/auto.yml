@@ -21,7 +21,13 @@ jobs:
         run: echo "::set-output name=JSON_NO::$(cat ./config.json | jq -r '.base_config[1].value')"
         id: json
       - name: Json check
-        run: echo ${{ steps.json.outputs.JSON_NO +$(0.0.1) }}
+        run: echo ${{ steps.json.outputs.JSON_NO }}
+        env:
+          NUM: ${{ steps.json.outputs.JSON_NO }}
+      - run: |
+          echo $NUM
+          echo ::set-env name=JSON_NO::$(($NUM+0.0.1))
+      - run: echo $JSON_NO  
        
       - uses: actions/checkout@v2
         with: 
