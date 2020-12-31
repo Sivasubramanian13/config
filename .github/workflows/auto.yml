@@ -16,7 +16,7 @@ jobs:
           path: './' 
       - name: check
         run: |
-          echo value=$((cat ./config.json | jq -r '.base_config[1].value'))
+          echo value=$(cat ./config.json | jq -r '.base_config[1].value')
       - uses: actions/checkout@v2
         with: 
           path: './'      
