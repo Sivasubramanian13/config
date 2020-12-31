@@ -18,11 +18,12 @@ jobs:
         run: |
           echo value=$(cat ./config.json | jq -r '.base_config[1].value')
       - name: Json
-        run: echo "::set-output name=JSON_NO::$(cat ./config.json | jq -r '.base_config[1].value')"
+        run: echo "::set-output name=JSON_NO::2"
         id: json
       - name: Json check
         run: |
           echo num=${{ steps.json.outputs.JSON_NO }}
+          echo $num
           echo $(( $num+1 ))
         
 #         env:
