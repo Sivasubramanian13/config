@@ -23,7 +23,7 @@ jobs:
       - name: Json check
         run: |
           echo num=${{ steps.json.outputs.JSON_NO }}
-          echo $(( num+1 ))
+          echo $(( $num+1 ))
         
 #         env:
 #           NUM: ${{ steps.json.outputs.JSON_NO }}         
