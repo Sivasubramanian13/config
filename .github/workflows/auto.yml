@@ -26,7 +26,7 @@ jobs:
           NUM: ${{ steps.json.outputs.JSON_NO }}
       - run: |
           echo $NUM
-          echo ::set-env name=JSON_NO::$(($NUM+0.0.1))
+          echo ::set-env name=JSON_NO::$(($NUM+1))
       - run: echo $JSON_NO  
        
       - uses: actions/checkout@v2
