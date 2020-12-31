@@ -26,9 +26,8 @@ jobs:
       - name: Json check
         run: |
           echo num=${{ steps.json.outputs.JSON_NO }}
-          echo $num
           echo gum=${{ steps.newjson.outputs.HARISH }}
-          echo $gum
+          echo ${{ ${{ steps.json.outputs.JSON_NO }} + ${{ steps.newjson.outputs.HARISH }} }}
         
         
 #         env:
