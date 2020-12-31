@@ -15,14 +15,11 @@ jobs:
         with: 
           path: './' 
       - name: check
-        run:  echo $(cat ./config.json | jq -r '.base_config[1].value+$(0.0.1)') 
+        run:  echo value=$(cat ./config.json | jq -r '.base_config[1].value') 
       
       - name: Add value
-        run: echo "::set-output name=ADD::0.0.1"
-        id: add
-      - name: Json check
-        run: |
-            echo ${{ steps.add.outputs.ADD }}  
+        run: echo $value+0.0.1
+       
       - uses: actions/checkout@v2
         with: 
           path: './'      
