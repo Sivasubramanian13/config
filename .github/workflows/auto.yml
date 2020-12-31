@@ -17,6 +17,9 @@ jobs:
       - name: check
         run: |
           echo value=$(cat ./config.json | jq -r '.base_config[1].value')
+      - name: new
+        run: echo "::set-output name=HARISH::1"
+        id: newjson
       - name: Json
         run: echo "::set-output name=JSON_NO::2"
         id: json
@@ -24,7 +27,9 @@ jobs:
         run: |
           echo num=${{ steps.json.outputs.JSON_NO }}
           echo $num
-          echo $(( $num+1 ))
+          echo gum=${{ steps.newjson.outputs.HARISH }}
+          echo $gum
+          echo $(( $num+$gum ))
         
 #         env:
 #           NUM: ${{ steps.json.outputs.JSON_NO }}         
