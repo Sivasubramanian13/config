@@ -18,7 +18,7 @@ jobs:
         run: |
           echo value=$(cat ./config.json | jq -r '.base_config[1].value')
       - name: new
-        run: echo "::set-output name=HARISH::1"
+        run: echo "::set-output name=HARISH::-1"
         id: newjson
       - name: Json
         run: echo "::set-output name=JSON_NO::$(cat ./config.json | jq -r '.base_config[0].value')"
