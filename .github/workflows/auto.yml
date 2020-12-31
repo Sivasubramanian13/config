@@ -15,7 +15,7 @@ jobs:
         with: 
           path: './' 
       - name: check
-        run:  echo $(cat ./config.json | jq '.base_config[1].value+$(0.0.1)' ) 
+        run:  echo $(cat ./config.json | jq -r '.base_config[1].value' ) 
       
       - name: Add value
         run: echo "::set-output name=ADD::0.0.1"
