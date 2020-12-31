@@ -15,9 +15,11 @@ jobs:
         with: 
           path: './' 
       - name: check
+        env:
+          NUM: ${{ cat ./config.json | jq -r '.base_config[1].value' }}
         run:  |
-          echo value=$(cat ./config.json | jq -r '.base_config[1].value') 
-          echo $(($value+0.0.1))
+         echo ::set-env name=JSON_NO::$(($NUM+0.0.1)) 
+      - run: echo $JSON_NO
        
       - uses: actions/checkout@v2
         with: 
