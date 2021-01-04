@@ -15,7 +15,7 @@ jobs:
         with: 
           path: './'
       - name: Json
-        run: value=$(./config.json | jq '.base_config[1].value')
+        run: value=$(cat ./config.json | jq '.base_config[1].value')
 
 
       - name: Split version code
