@@ -12,7 +12,7 @@
       "name": "build_version",
       "label": "",
       "description": "build version",
-      "value": "1.2.14",
+      "value": "1.2.$(( 14 +1 ))",
       "type": "version",
       "sub_type": ""
     },
