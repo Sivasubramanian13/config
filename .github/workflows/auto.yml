@@ -37,12 +37,12 @@ jobs:
           minor: ${{ steps.split.outputs._1 }}
           patch: ${{ steps.split.outputs._2 }}
       - name: Add
-        env:
-          add_run: echo $(( ${{ steps.split.outputs._2 }} +1 ))
-          
-        run: |
-           echo $add_run
-           echo $(( ${{ steps.split.outputs._2 }} +1 ))
+        run: echo $(( ${{ steps.split.outputs._2 }} +1 ))
+      - name: Output
+        run: echo "::set-output name=SPLIT::$(( ${{ steps.split.outputs._2 }} +1 ))"
+        id: splitno
+      - name: Check no
+        run: echo ${{ steps.splitno.outputs.SPLIT }}
 #       - name: check
 #         run: |
 #           echo value=$(cat ./config.json | jq -r '.base_config[1].value')
