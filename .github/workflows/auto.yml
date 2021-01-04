@@ -15,7 +15,7 @@ jobs:
         with: 
           path: './'
       - name: Alpha output
-        run: echo "::set-output name=ALPHA_NO::$(cat ./config.json | jq -r '.base_config[0].value')"
+        run: echo "::set-output name=ALPHA_NO::$(cat ./generator/services/configurationmanager/src/assests/configuration.json | jq -r '.base_config[0].value')"
         id: alpha
       - name: Check alpha
         run: echo ${{ steps.alpha.outputs.ALPHA_NO }}
@@ -36,11 +36,8 @@ jobs:
         id: splitalpha
       - name: Check no
         run: echo ${{ steps.splitalpha.outputs.SPLIT_ALPHA }}
-          
-      - name: Json
-        run: echo value=$(cat ./config.json | jq -r '.base_config[1].value')
       - name: Json output
-        run: echo "::set-output name=JSON_NO::$(cat ./config.json | jq -r '.base_config[1].value')"
+        run: echo "::set-output name=JSON_NO::$(cat ./generator/services/configurationmanager/src/assests/configuration.json | jq -r '.base_config[1].value')"
         id: json
       - name: Check json
         run: echo ${{ steps.json.outputs.JSON_NO }}
@@ -68,9 +65,9 @@ jobs:
         with: 
           path: './'      
       - run: |          
-          echo "`jq '.base_config[0].value="${{ steps.split1.outputs._0 }}-${{ steps.splitalpha.outputs.SPLIT_ALPHA }}"' ./config.json `" > ./config.json
-          echo "`jq '.base_config[1].value="${{ steps.split.outputs._0 }}.${{ steps.split.outputs._1 }}.${{ steps.splitno.outputs.SPLIT }}"' ./config.json `" > ./config.json 
-          echo "`jq '.base_config[2].value="${{ steps.ec2.outputs.DATE_NOW }}"' ./config.json `" > ./config.json
+          echo "`jq '.base_config[0].value="${{ steps.split1.outputs._0 }}-${{ steps.splitalpha.outputs.SPLIT_ALPHA }}"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
+          echo "`jq '.base_config[1].value="${{ steps.split.outputs._0 }}.${{ steps.split.outputs._1 }}.${{ steps.splitno.outputs.SPLIT }}"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json 
+          echo "`jq '.base_config[2].value="${{ steps.ec2.outputs.DATE_NOW }}"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
      
       - uses: EndBug/add-and-commit@v6
         with:
