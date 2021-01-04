@@ -25,7 +25,7 @@ jobs:
         with:
           string: ${{ steps.alpha.outputs.ALPHA_NO }}
           separator: '-'
-#           limit: -1
+          limit: -1
       - name: Alpha action
         uses: xom9ikk/split@v1
         with:
