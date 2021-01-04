@@ -14,10 +14,28 @@ jobs:
       - uses: actions/checkout@v2
         with: 
           path: './'
+      - name: Alpha output
+        run: echo "::set-output name=ALPHA_NO::$(cat ./config.json | jq -r '.base_config[0].value')"
+        id: alpha
+      - name: Check alpha
+        run: echo ${{ steps.alpha.outputs.ALPHA_NO }}
+      - name: Split alpha code
+        uses: xom9ikk/split@v1
+        id: split1
+        with:
+          string: ${{ steps.json.outputs.ALPHA_NO }}
+          separator: .
+          limit: -1
+      - name: Alpha action
+        uses: xom9ikk/split@v1
+        with:
+          major: ${{ steps.split1.outputs._0 }}
+          minor: ${{ steps.split1.outputs._1 }}
+          patch: ${{ steps.split1.outputs._2 }}
       - name: Json
-        run: echo value=$(cat ./generator/services/configurationmanager/src/assests/configuration.json | jq -r '.base_config[1].value')
+        run: echo value=$(cat ./config.json | jq -r '.base_config[1].value')
       - name: Json output
-        run: echo "::set-output name=JSON_NO::$(cat ./generator/services/configurationmanager/src/assests/configuration.json | jq -r '.base_config[1].value')"
+        run: echo "::set-output name=JSON_NO::$(cat ./config.json | jq -r '.base_config[1].value')"
         id: json
       - name: Check json
         run: echo ${{ steps.json.outputs.JSON_NO }}
@@ -45,9 +63,9 @@ jobs:
         with: 
           path: './'      
       - run: |          
-          echo "`jq '.base_config[0].value="Alpha-13"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
-          echo "`jq '.base_config[1].value="${{ steps.split.outputs._0 }}.${{ steps.split.outputs._1 }}.${{ steps.splitno.outputs.SPLIT }}"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json 
-          echo "`jq '.base_config[2].value="${{ steps.ec2.outputs.DATE_NOW }}"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
+          echo "`jq '.base_config[0].value="Alpha-13"' ./config.json `" > ./config.json
+          echo "`jq '.base_config[1].value="${{ steps.split.outputs._0 }}.${{ steps.split.outputs._1 }}.${{ steps.splitno.outputs.SPLIT }}"' ./config.json `" > ./config.json 
+          echo "`jq '.base_config[2].value="${{ steps.ec2.outputs.DATE_NOW }}"' ./config.json `" > ./config.json
      
       - uses: EndBug/add-and-commit@v6
         with:
