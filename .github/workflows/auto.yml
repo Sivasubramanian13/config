@@ -82,6 +82,6 @@ jobs:
     steps: 
       - run: |
          sleep 10
-         git init
+         cd config
          git pull https://github.com/Sivasubramanian13/config.git
         
