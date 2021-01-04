@@ -14,17 +14,17 @@ jobs:
       - uses: actions/checkout@v2
         with: 
           path: './'
-#       - name: Alpha output
-#         run: echo "::set-output name=ALPHA_NO::$(cat ./config.json | jq '.base_config[0].value')"
-#         id: alpha
-#       - name: Check alpha
-#         run: echo ${{ steps.alpha.outputs.ALPHA_NO }}
-#       - name: Split alpha code
+      - name: Alpha output
+        run: echo "::set-output name=ALPHA_NO::$(cat ./config.json | jq '.base_config[0].value')"
+        id: alpha
+      - name: Check alpha
+        run: echo ${{ steps.alpha.outputs.ALPHA_NO }}
+      - name: Split alpha code
       - name: Alpha code
         uses: xom9ikk/split@v1
         id: split1
         with:
-          string: Alpha-13
+          string: ${{ steps.alpha.outputs.ALPHA_NO }}
           separator: '-'
           limit: -1
       - name: Alpha action
