@@ -23,7 +23,7 @@ jobs:
         uses: xom9ikk/split@v1
         id: split1
         with:
-          string: ${{ steps.json.outputs.ALPHA_NO }}
+          string: ${{ steps.split1.outputs.ALPHA_NO }}
           separator: .
           limit: -1
       - name: Alpha action
