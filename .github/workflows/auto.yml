@@ -15,14 +15,12 @@ jobs:
         with: 
           path: './'
       - name: Json
-        run: echo value=$(cat ./config.json | jq -r '.base_config[1].value')
+        run: echo value=$(cat ./generator/services/configurationmanager/src/assests/configuration.json | jq -r '.base_config[1].value')
       - name: Json output
-        run: echo "::set-output name=JSON_NO::$(cat ./config.json | jq -r '.base_config[1].value')"
+        run: echo "::set-output name=JSON_NO::$(cat ./generator/services/configurationmanager/src/assests/configuration.json | jq -r '.base_config[1].value')"
         id: json
       - name: Check json
         run: echo ${{ steps.json.outputs.JSON_NO }}
-
-
       - name: Split version code
         uses: xom9ikk/split@v1
         id: split
@@ -43,28 +41,13 @@ jobs:
         id: splitno
       - name: Check no
         run: echo ${{ steps.splitno.outputs.SPLIT }}
-#       - name: check
-#         run: |
-#           echo value=$(cat ./config.json | jq -r '.base_config[1].value')
-#       - name: new
-#         run: echo "::set-output name=HARISH::2.3"
-#         id: newjson
-#       - name: Json
-#         run: echo "::set-output name=JSON_NO::6.7"
-#         id: json
-#       - name: Json check
-#         run: |
-#           echo num=${{ steps.json.outputs.JSON_NO }}
-#           echo gum=${{ steps.newjson.outputs.HARISH }}
-#           echo $(( ${{ steps.json.outputs.JSON_NO }} + ${{ steps.newjson.outputs.HARISH }} ))
-       
       - uses: actions/checkout@v2
         with: 
           path: './'      
       - run: |          
-          echo "`jq '.base_config[0].value="Alpha-13"' ./config.json `" > ./config.json 
-          echo "`jq '.base_config[1].value="${{ steps.split.outputs._0 }}.${{ steps.split.outputs._1 }}.${{ steps.splitno.outputs.SPLIT }}"' ./config.json `" > ./config.json 
-          echo "`jq '.base_config[2].value="${{ steps.ec2.outputs.DATE_NOW }}"' ./config.json `" > ./config.json 
+          echo "`jq '.base_config[0].value="Alpha-13"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
+          echo "`jq '.base_config[1].value="${{ steps.split.outputs._0 }}.${{ steps.split.outputs._1 }}.${{ steps.splitno.outputs.SPLIT }}"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json 
+          echo "`jq '.base_config[2].value="${{ steps.ec2.outputs.DATE_NOW }}"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
      
       - uses: EndBug/add-and-commit@v6
         with:
