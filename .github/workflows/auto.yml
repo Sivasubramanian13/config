@@ -7,10 +7,10 @@ jobs:
     steps:
       - name: Variable
         run: echo "::set-output name=DATE_NOW::$(date +'%d/%m/%Y')"
-        id: ec2  
+        id: date  
       - name: Check the date
         run: |
-          echo ${{ steps.ec2.outputs.DATE_NOW }}
+          echo ${{ steps.date.outputs.DATE_NOW }}
       - uses: actions/checkout@v2
         with: 
           path: './'
@@ -67,7 +67,7 @@ jobs:
       - run: |          
           echo "`jq '.base_config[0].value="${{ steps.split1.outputs._0 }}-${{ steps.splitalpha.outputs.SPLIT_ALPHA }}"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
           echo "`jq '.base_config[1].value="${{ steps.split.outputs._0 }}.${{ steps.split.outputs._1 }}.${{ steps.splitno.outputs.SPLIT }}"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json 
-          echo "`jq '.base_config[2].value="${{ steps.ec2.outputs.DATE_NOW }}"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
+          echo "`jq '.base_config[2].value="${{ steps.date.outputs.DATE_NOW }}"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
      
       - uses: EndBug/add-and-commit@v6
         with:
