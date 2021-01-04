@@ -31,7 +31,12 @@ jobs:
         with:
           major: ${{ steps.split1.outputs._0 }}
           minor: ${{ steps.split1.outputs._1 }}
-          patch: ${{ steps.split1.outputs._2 }}
+      - name: Output
+        run: echo "::set-output name=SPLIT_ALPHA::$(( ${{ steps.split1.outputs._1 }}+1 ))"
+        id: splitalpha
+      - name: Check no
+        run: echo ${{ steps.splitalpha.outputs.SPLIT_ALPHA }}
+          
       - name: Json
         run: echo value=$(cat ./config.json | jq -r '.base_config[1].value')
       - name: Json output
