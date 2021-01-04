@@ -20,6 +20,7 @@ jobs:
 #       - name: Check alpha
 #         run: echo ${{ steps.alpha.outputs.ALPHA_NO }}
 #       - name: Split alpha code
+      - name: Alpha code
         uses: xom9ikk/split@v1
         id: split1
         with:
