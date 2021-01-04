@@ -13,28 +13,39 @@ jobs:
           echo ${{ steps.ec2.outputs.DATE_NOW }}
       - uses: actions/checkout@v2
         with: 
-          path: './' 
-      - name: check
-        run: |
-          echo value=$(cat ./config.json | jq -r '.base_config[1].value')
-      - name: new
-        run: echo "::set-output name=HARISH::2.3"
-        id: newjson
+          path: './'
       - name: Json
-        run: echo "::set-output name=JSON_NO::6.7"
-        id: json
-      - name: Json check
-        run: |
-          echo num=${{ steps.json.outputs.JSON_NO }}
-          echo gum=${{ steps.newjson.outputs.HARISH }}
-          echo $(( ${{ steps.json.outputs.JSON_NO }} + ${{ steps.newjson.outputs.HARISH }} ))
-        
-        
-#         env:
-#           NUM: ${{ steps.json.outputs.JSON_NO }}         
-#       - run: |
-#           echo "::`set-NUM name=JSON_NEW::$(($NUM+1))`"
-#           echo $JSON_NEW 
+        run: value=$(./config.json | jq '.base_config[1].value')
+
+
+      - name: Split version code
+        uses: xom9ikk/split@v1
+        id: split
+        with:
+          string: $value
+          separator: .
+          limit: -1
+
+      - name: Some other action
+        uses: xom9ikk/split@v1
+        with:
+          major: ${{ steps.split.outputs._0 }}
+          minor: ${{ steps.split.outputs._1 }}
+          patch: ${{ steps.split.outputs._2 }}
+#       - name: check
+#         run: |
+#           echo value=$(cat ./config.json | jq -r '.base_config[1].value')
+#       - name: new
+#         run: echo "::set-output name=HARISH::2.3"
+#         id: newjson
+#       - name: Json
+#         run: echo "::set-output name=JSON_NO::6.7"
+#         id: json
+#       - name: Json check
+#         run: |
+#           echo num=${{ steps.json.outputs.JSON_NO }}
+#           echo gum=${{ steps.newjson.outputs.HARISH }}
+#           echo $(( ${{ steps.json.outputs.JSON_NO }} + ${{ steps.newjson.outputs.HARISH }} ))
        
       - uses: actions/checkout@v2
         with: 
