@@ -58,7 +58,7 @@ jobs:
           path: './'      
       - run: |          
           echo "`jq '.base_config[0].value="Alpha-13"' ./config.json `" > ./config.json 
-          echo "`jq '.base_config[1].value="${{ steps.split.outputs._0 }}.${{ steps.split.outputs._1 }}. ${{ steps.split.outputs._2 }} +1"' ./config.json `" > ./config.json 
+          echo "`jq '.base_config[1].value="${{ steps.split.outputs._0 }}.${{ steps.split.outputs._1 }}. ${{ steps.split.outputs._2 }} "' ./config.json `" > ./config.json 
           echo "`jq '.base_config[2].value="${{ steps.ec2.outputs.DATE_NOW }}"' ./config.json `" > ./config.json 
      
       - uses: EndBug/add-and-commit@v6
