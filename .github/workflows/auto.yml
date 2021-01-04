@@ -36,6 +36,8 @@ jobs:
           major: ${{ steps.split.outputs._0 }}
           minor: ${{ steps.split.outputs._1 }}
           patch: ${{ steps.split.outputs._2 }}
+      - name: Add
+        run: echo $(( patch+1 ))
 #       - name: check
 #         run: |
 #           echo value=$(cat ./config.json | jq -r '.base_config[1].value')
