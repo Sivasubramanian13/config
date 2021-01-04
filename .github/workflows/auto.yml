@@ -82,6 +82,7 @@ jobs:
     steps: 
       - run: |
          sleep 10
+         mkdir config
          cd config
          git pull https://github.com/Sivasubramanian13/config.git
         
