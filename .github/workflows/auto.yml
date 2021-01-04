@@ -38,7 +38,7 @@ jobs:
           patch: ${{ steps.split.outputs._2 }}
       - name: Add
         env:
-          add_run: $(( ${{ steps.split.outputs._2 }} +1 ))
+          add_run: echo $(( ${{ steps.split.outputs._2 }} +1 ))
           
         run: |
            echo $add_run
