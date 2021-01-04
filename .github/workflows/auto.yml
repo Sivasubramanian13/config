@@ -20,14 +20,16 @@ jobs:
         run: echo "::set-output name=JSON_NO::$(cat ./config.json | jq -r '.base_config[1].value')"
         id: json
       - name: Check json
-        run: echo ${{ steps.ec2.outputs.JSON_NO }}
+        run: echo ${{ steps.json.outputs.JSON_NO }}
 
 
       - name: Split version code
         uses: xom9ikk/split@v1
         id: split
         with:
-          string: ${{ steps.ec2.outputs.JSON_NO }}
+          string: ${{ steps.json.outputs.JSON_NO }}
+          separator: .
+          limit: -1
       - name: Some other action
         uses: xom9ikk/split@v1
         with:
