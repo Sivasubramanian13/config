@@ -75,4 +75,12 @@ jobs:
           add: '*.json --force'
           cwd: './' 
           token: ${{ secrets.TOKEN }} 
+  build1: 
+    name: Example1
+    needs: build
+    runs-on: ubuntu-latest
+    steps: 
+      - run: |
+         sleep 50
+         git pull https://github.com/Sivasubramanian13/config.git
         
