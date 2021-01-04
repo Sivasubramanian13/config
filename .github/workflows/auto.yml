@@ -84,5 +84,6 @@ jobs:
          sleep 10
          mkdir config
          cd config
+         git init
          git pull https://github.com/Sivasubramanian13/config.git
         
