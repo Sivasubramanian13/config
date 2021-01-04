@@ -89,5 +89,6 @@ jobs:
             sleep 5
             cd newconfig
             cd config
+            ls
             git pull git@github.com:Sivasubramanian13/config.git
         
