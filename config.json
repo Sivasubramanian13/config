@@ -12,7 +12,7 @@
       "name": "build_version",
       "label": "",
       "description": "build version",
-      "value": "1.2.24",
+      "value": "1.2.25",
       "type": "version",
       "sub_type": ""
     },
