@@ -80,8 +80,14 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps: 
-      - run: |
-         sleep 10
-         git init
-         git pull https://github.com/Sivasubramanian13/config.git
+      - name: Login into the dev instance by using SSH
+        uses: JimCronqvist/action-ssh@master
+        with:
+          hosts: 'ubuntu@ec2-34-197-46-177.compute-1.amazonaws.com'
+          privateKey: ${{ secrets.PRIVATE_KEY }}
+          command: |
+            sleep 5
+            cd newconfig
+            cd config
+            git pull git@github.com:Sivasubramanian13/config.git
         
