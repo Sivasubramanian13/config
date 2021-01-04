@@ -14,12 +14,12 @@ jobs:
       - uses: actions/checkout@v2
         with: 
           path: './'
-      - name: Alpha output
+      - name: Alpha Output
         run: echo "::set-output name=ALPHA_NO::$(cat ./generator/services/configurationmanager/src/assests/configuration.json | jq -r '.base_config[0].value')"
         id: alpha
       - name: Check alpha
         run: echo ${{ steps.alpha.outputs.ALPHA_NO }}
-      - name: Alpha code
+      - name: Alpha Code
         uses: xom9ikk/split@v1
         id: split1
         with:
