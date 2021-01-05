@@ -72,7 +72,7 @@ jobs:
       - uses: EndBug/add-and-commit@v6
         with:
           message: 'Add the version and date'
-          add: '*.json --force'
+          add: './generator/services/configurationmanager/src/assests/configuration.json --force'
           cwd: './' 
           token: ${{ secrets.TOKEN }} 
   build1: 
