@@ -75,20 +75,4 @@ jobs:
           add: './generator/services/configurationmanager/src/assests/configuration.json --force'
           cwd: './' 
           token: ${{ secrets.TOKEN }} 
-  build1: 
-    name: Example1
-    needs: build
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Login into the dev instance by using SSH
-        uses: JimCronqvist/action-ssh@master
-        with:
-          hosts: 'ubuntu@ec2-34-197-46-177.compute-1.amazonaws.com'
-          privateKey: ${{ secrets.PRIVATE_KEY }}
-          command: |
-            sleep 5
-            cd newconfig
-            cd config
-            ls
-            git pull git@github.com:Sivasubramanian13/config.git
-        
+ 
