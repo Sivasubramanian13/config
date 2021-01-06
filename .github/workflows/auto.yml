@@ -103,11 +103,11 @@ jobs:
             previews: 
               - luke-cage
           required_status_checks: |
-            null
+             strict: false
           enforce_admins: |
             null
           required_pull_request_reviews: |
-            null
+            dismiss_stale_reviews: false
           restrictions: | 
             null 
         env:
