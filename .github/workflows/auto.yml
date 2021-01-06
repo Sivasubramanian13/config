@@ -3,7 +3,8 @@ on:
   push:
     branches:
       - main
-name: Build13
+
+name: Build19u
 jobs:
   build:
     name: Example1
@@ -45,7 +46,7 @@ jobs:
           string: ${{ steps.alpha.outputs.ALPHA_NO }}
           separator: '-'
           limit: -1
-      - name: Alpha action
+      - name: Alpha actions
         uses: xom9ikk/split@v1
         with:
           major: ${{ steps.split1.outputs._0 }}
