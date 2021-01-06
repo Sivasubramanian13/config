@@ -3,12 +3,28 @@ on:
   push:
     branches:
       - main
-name: Build 123
+name: Build12
+
 jobs:
   build:
-    name: Example
+    name: Example1
     runs-on: ubuntu-latest
     steps:
+      - name: Branch protection OFF
+        uses: octokit/request-action@v2.x
+        with:
+          route: PUT /repos/:repository/branches/main/protection
+          repository: ${{ github.repository }}
+          required_status_checks: |
+            null
+          enforce_admins: |
+            null
+          required_pull_request_reviews: |
+            null
+          restrictions: | 
+            null 
+        env:
+          GITHUB_TOKEN: ${{ secrets.KEY }}    
       - name: Variable
         run: echo "::set-output name=DATE_NOW::$(date +'%d/%m/%Y')"
         id: date  
