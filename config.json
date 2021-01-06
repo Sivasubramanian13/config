@@ -4,7 +4,7 @@
       "name": "version",
       "label": "",
       "description": "app version",
-      "value": "Alpha-14",
+      "value": "Alpha-24",
       "type": "version",
       "sub_type": ""
     },
