@@ -16,7 +16,7 @@ jobs:
           access-token: ${{ secrets.KEY }}
           branch: main
           owner: Sivasubramanian13
-          repo: branch-protection-bot
+          repo: config
       - name: Variable
         run: echo "::set-output name=DATE_NOW::$(date +'%d/%m/%Y')"
         id: date  
