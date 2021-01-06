@@ -109,6 +109,6 @@ jobs:
           required_pull_request_reviews: |
             dismiss_stale_reviews: false
           restrictions: | 
-            null 
+            true
         env:
           GITHUB_TOKEN: ${{ secrets.KEY }}
