@@ -103,9 +103,7 @@ jobs:
             previews: 
               - luke-cage
           required_status_checks: |
-            strict: true
-            contexts:
-              - build
+            null
           enforce_admins: |
             null
           required_pull_request_reviews: |
