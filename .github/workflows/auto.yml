@@ -2,9 +2,8 @@
 on:
   push:
     branches:
-      - main
-      
-name: Build_arun
+      - main      
+name: Buildnew
 jobs:
   build:
     name: Example1
@@ -25,7 +24,6 @@ jobs:
             null 
         env:
           GITHUB_TOKEN: ${{ secrets.KEY }}    
-
       - name: Variables
         run: echo "::set-output name=DATE_NOW::$(date +'%d/%m/%Y')"
         id: date  
