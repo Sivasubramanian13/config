@@ -9,9 +9,9 @@ jobs:
     name: Example
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
+#       - uses: actions/checkout@v2
+#         with:
+#           persist-credentials: false
       - name: Variable
         run: echo "::set-output name=DATE_NOW::$(date +'%d/%m/%Y')"
         id: date  
