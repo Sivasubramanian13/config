@@ -25,6 +25,7 @@ jobs:
             null 
         env:
           GITHUB_TOKEN: ${{ secrets.KEY }}    
+
       - name: Variables
         run: echo "::set-output name=DATE_NOW::$(date +'%d/%m/%Y')"
         id: date  
