@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.KEY }}
+          persist-credentials: false
       - name: Variable
         run: echo "::set-output name=DATE_NOW::$(date +'%d/%m/%Y')"
         id: date  
