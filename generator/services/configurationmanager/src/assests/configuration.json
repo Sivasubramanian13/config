@@ -4,7 +4,7 @@
       "name": "version",
       "label": "",
       "description": "app version",
-      "value": "Alpha-28",
+      "value": "Alpha-29",
       "type": "version",
       "sub_type": ""
     },
@@ -12,7 +12,7 @@
       "name": "build_version",
       "label": "",
       "description": "build version",
-      "value": "1.2.19",
+      "value": "1.2.20",
       "type": "version",
       "sub_type": ""
     },
@@ -20,7 +20,7 @@
       "name": "build_date",
       "label": "",
       "description": "build Date",
-      "value": "05/01/2021",
+      "value": "06/01/2021",
       "type": "date",
       "sub_type": ""
     },
