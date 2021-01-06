@@ -9,14 +9,14 @@ jobs:
     name: Example1
     runs-on: ubuntu-latest
     steps:
-      - name: Enable "include administrators" branch protection
-        uses: benjefferies/branch-protection-bot@master
-        if: always() 
-        with:
-          access-token: ${{ secrets.KEY }}
-          branch: main
-          owner: Sivasubramanian13
-          repo: config
+#       - name: Enable "include administrators" branch protection
+#         uses: benjefferies/branch-protection-bot@master
+#         if: always() 
+#         with:
+#           access-token: ${{ secrets.KEY }}
+#           branch: main
+#           owner: Sivasubramanian13
+#           repo: config
       - name: Variable
         run: echo "::set-output name=DATE_NOW::$(date +'%d/%m/%Y')"
         id: date  
