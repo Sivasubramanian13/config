@@ -4,7 +4,7 @@
       "name": "version",
       "label": "",
       "description": "app version",
-      "value": "Alpha-45",
+      "value": "Alpha-46",
       "type": "version",
       "sub_type": ""
     },
@@ -12,7 +12,7 @@
       "name": "build_version",
       "label": "",
       "description": "build version",
-      "value": "1.2.36",
+      "value": "1.2.37",
       "type": "version",
       "sub_type": ""
     },
