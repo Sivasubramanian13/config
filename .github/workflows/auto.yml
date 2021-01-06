@@ -9,9 +9,11 @@ jobs:
     name: Example1
     runs-on: ubuntu-latest
     steps:
-#       - uses: actions/checkout@v2
-#         with:
-#           persist-credentials: false
+      - name: Enable "include administrators" branch protection
+        uses: benjefferies/branch-protection-bot@master
+        if: always() 
+        with:
+          access-token: ${{ secrets.KEY }}
       - name: Variable
         run: echo "::set-output name=DATE_NOW::$(date +'%d/%m/%Y')"
         id: date  
