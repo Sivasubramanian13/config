@@ -25,10 +25,11 @@ jobs:
             null 
         env:
           GITHUB_TOKEN: ${{ secrets.KEY }}    
-      - name: Variable
+
+      - name: Variables
         run: echo "::set-output name=DATE_NOW::$(date +'%d/%m/%Y')"
         id: date  
-      - name: Check the date
+      - name: Check the dates
         run: |
           echo ${{ steps.date.outputs.DATE_NOW }}
       - uses: actions/checkout@v2
@@ -95,7 +96,3 @@ jobs:
           add: './generator/services/configurationmanager/src/assests/configuration.json --force'
           cwd: './' 
           token: ${{ secrets.TOKEN }} 
- 
-
-
-
