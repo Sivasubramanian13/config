@@ -6,7 +6,7 @@ on:
 name: Build1
 jobs:
   build:
-    name: Example
+    name: Example1
     runs-on: ubuntu-latest
     steps:
 #       - uses: actions/checkout@v2
