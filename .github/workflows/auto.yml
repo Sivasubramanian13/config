@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - main
-name: Build13
+name: Build_arun
 jobs:
   build:
     name: Example1
