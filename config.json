@@ -19,7 +19,7 @@
     {
       "name": "build_date",
       "label": "",
-      "description": "build Date",
+      "description": "build Dates",
       "value": "04/01/2021",
       "type": "date",
       "sub_type": ""
