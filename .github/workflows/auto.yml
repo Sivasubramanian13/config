@@ -9,21 +9,21 @@ jobs:
     name: Example1
     runs-on: ubuntu-latest
     steps:
-      - name: Branch protection OFF
-        uses: octokit/request-action@v2.x
-        with:
-          route: PUT /repos/:repository/branches/main/protection
-          repository: ${{ github.repository }}
-          required_status_checks: |
-            null
-          enforce_admins: |
-            null
-          required_pull_request_reviews: |
-            null
-          restrictions: | 
-            null 
-        env:
-          GITHUB_TOKEN: ${{ secrets.KEY }}    
+#       - name: Branch protection OFF
+#         uses: octokit/request-action@v2.x
+#         with:
+#           route: PUT /repos/:repository/branches/main/protection
+#           repository: ${{ github.repository }}
+#           required_status_checks: |
+#             null
+#           enforce_admins: |
+#             null
+#           required_pull_request_reviews: |
+#             null
+#           restrictions: | 
+#             null 
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.KEY }}    
       - name: Variables
         run: echo "::set-output name=DATE_NOW::$(date +'%d/%m/%Y')"
         id: date  
@@ -94,21 +94,21 @@ jobs:
           add: './generator/services/configurationmanager/src/assests/configuration.json --force'
           cwd: './' 
           token: ${{ secrets.TOKEN }} 
-      - name: Branch protection ON
-        uses: octokit/request-action@v2.x
-        with:
-          route: PUT /repos/:repository/branches/main/protection
-          repository: ${{ github.repository }}
-          mediaType: |
-            previews: 
-              - luke-cage
-          required_status_checks: |
-             null
-          enforce_admins: |
-            null
-          required_pull_request_reviews: |
-            true
-          restrictions: | 
-             null
-        env:
-          GITHUB_TOKEN: ${{ secrets.KEY }}
+#       - name: Branch protection ON
+#         uses: octokit/request-action@v2.x
+#         with:
+#           route: PUT /repos/:repository/branches/main/protection
+#           repository: ${{ github.repository }}
+#           mediaType: |
+#             previews: 
+#               - luke-cage
+#           required_status_checks: |
+#              null
+#           enforce_admins: |
+#             null
+#           required_pull_request_reviews: |
+#             true
+#           restrictions: | 
+#              null
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.KEY }}
