@@ -10,8 +10,8 @@ jobs:
     name: Example1
     runs-on: ubuntu-latest
     steps:
-      - name: Branch name
-        run: echo "##[set-output name=main;]$(echo ${GITHUB_REF#refs/heads/})"
+#       - name: Branch name
+#         run: echo "##[set-output name=main;]$(echo ${GITHUB_REF#refs/heads/})"
       
 #       - name: Variables
 #         run: echo "::set-output name=DATE_NOW::$(date +'%d/%m/%Y')"
