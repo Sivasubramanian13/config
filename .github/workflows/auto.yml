@@ -6,19 +6,18 @@ on:
       - dev 
 name: Buildnew
 jobs:
+  newjob:
+    name: new
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello
+        run: echo "Hello world"
+    
   build:
+    needs: newjob
     name: Example1
     runs-on: ubuntu-latest
     steps:
-#       - name: Branch name
-#         run: echo "##[set-output name=main;]$(echo ${GITHUB_REF#refs/heads/})"
-      
-#       - name: Variables
-#         run: echo "::set-output name=DATE_NOW::$(date +'%d/%m/%Y')"
-#         id: date  
-#       - name: Check the dates
-#         run: |
-#           echo ${{ steps.date.outputs.DATE_NOW }}
       - uses: actions/checkout@v2
         with: 
           path: './'
