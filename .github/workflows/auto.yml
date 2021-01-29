@@ -39,7 +39,7 @@ jobs:
           major: ${{ steps.split1.outputs._0 }}
           minor: ${{ steps.split1.outputs._1 }}
       - name: Output
-        run: echo "::set-output name=SPLIT_ALPHA::$(( ${{ steps.split1.outputs._1 }}+1 ))"
+        run: echo "::set-output name=SPLIT_ALPHA::$(( ${{ steps.split1.outputs._1 }}+01 ))"
         id: splitalpha
       - name: Check no
         run: echo ${{ steps.splitalpha.outputs.SPLIT_ALPHA }}
