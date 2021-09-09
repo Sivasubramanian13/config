@@ -13,10 +13,9 @@
       "label": "",
       "description": "build version",
       "value": "1.2.28",
-      "type": "version",
       "sub_type": ""
     },
-    {
+    {o.
       "name": "build_date",
       "label": "",
       "description": "build Date",
