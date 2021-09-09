@@ -13,73 +13,73 @@ jobs:
       - name: Hello
         run: echo "Hello world"
     
-  build:
-    needs: newjob
-    name: Example1
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with: 
-          path: './'
-      - name: Alpha Output
-        run: echo ::set-output name=ALPHA_NO::$(cat ./generator/services/configurationmanager/src/assests/configuration.json | jq -r '.base_config[0].value')
-        id: alpha
-      - name: Check Alpha
-        run: echo ${{ steps.alpha.outputs.ALPHA_NO }}
-      - name: Alpha Code
-        uses: xom9ikk/split@v1
-        id: split1
-        with:
-          string: ${{ steps.alpha.outputs.ALPHA_NO }}
-          separator: '-'
-          limit: -1
-      - name: Alpha Action
-        uses: xom9ikk/split@v1
-        with:
-          major: ${{ steps.split1.outputs._0 }}
-          minor: ${{ steps.split1.outputs._1 }}
-      - name: Output
-        run: echo "::set-output name=SPLIT_ALPHA::$(( ${{ steps.split1.outputs._1 }}+01 ))"
-        id: splitalpha
-      - name: Check no
-        run: echo ${{ steps.splitalpha.outputs.SPLIT_ALPHA }}
-      - name: Json output
-        run: echo "::set-output name=JSON_NO::$(cat ./generator/services/configurationmanager/src/assests/configuration.json | jq -r '.base_config[1].value')"
-        id: json
-      - name: Check json
-        run: echo ${{ steps.json.outputs.JSON_NO }}
-      - name: Split version code
-        uses: xom9ikk/split@v1
-        id: split
-        with:
-          string: ${{ steps.json.outputs.JSON_NO }}
-          separator: .
-          limit: -1
-      - name: Some other action
-        uses: xom9ikk/split@v1
-        with:
-          major: ${{ steps.split.outputs._0 }}
-          minor: ${{ steps.split.outputs._1 }}
-          patch: ${{ steps.split.outputs._2 }}
-      - name: Add
-        run: echo $(( ${{ steps.split.outputs._2 }}+1 ))
-      - name: Output
-        run: echo "::set-output name=SPLIT::$(( ${{ steps.split.outputs._2 }}+1 ))"
-        id: splitno
-      - name: Check no
-        run: echo ${{ steps.splitno.outputs.SPLIT }}
-      - uses: actions/checkout@v2
-        with: 
-          path: './'      
-      - run: |          
-          echo "`jq '.base_config[0].value="${{ steps.split1.outputs._0 }}-${{ steps.splitalpha.outputs.SPLIT_ALPHA }}"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
-          echo "`jq '.base_config[1].value="${{ steps.split.outputs._0 }}.${{ steps.split.outputs._1 }}.${{ steps.splitno.outputs.SPLIT }}"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json 
+#   build:
+#     needs: newjob
+#     name: Example1
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#         with: 
+#           path: './'
+#       - name: Alpha Output
+#         run: echo ::set-output name=ALPHA_NO::$(cat ./generator/services/configurationmanager/src/assests/configuration.json | jq -r '.base_config[0].value')
+#         id: alpha
+#       - name: Check Alpha
+#         run: echo ${{ steps.alpha.outputs.ALPHA_NO }}
+#       - name: Alpha Code
+#         uses: xom9ikk/split@v1
+#         id: split1
+#         with:
+#           string: ${{ steps.alpha.outputs.ALPHA_NO }}
+#           separator: '-'
+#           limit: -1
+#       - name: Alpha Action
+#         uses: xom9ikk/split@v1
+#         with:
+#           major: ${{ steps.split1.outputs._0 }}
+#           minor: ${{ steps.split1.outputs._1 }}
+#       - name: Output
+#         run: echo "::set-output name=SPLIT_ALPHA::$(( ${{ steps.split1.outputs._1 }}+01 ))"
+#         id: splitalpha
+#       - name: Check no
+#         run: echo ${{ steps.splitalpha.outputs.SPLIT_ALPHA }}
+#       - name: Json output
+#         run: echo "::set-output name=JSON_NO::$(cat ./generator/services/configurationmanager/src/assests/configuration.json | jq -r '.base_config[1].value')"
+#         id: json
+#       - name: Check json
+#         run: echo ${{ steps.json.outputs.JSON_NO }}
+#       - name: Split version code
+#         uses: xom9ikk/split@v1
+#         id: split
+#         with:
+#           string: ${{ steps.json.outputs.JSON_NO }}
+#           separator: .
+#           limit: -1
+#       - name: Some other action
+#         uses: xom9ikk/split@v1
+#         with:
+#           major: ${{ steps.split.outputs._0 }}
+#           minor: ${{ steps.split.outputs._1 }}
+#           patch: ${{ steps.split.outputs._2 }}
+#       - name: Add
+#         run: echo $(( ${{ steps.split.outputs._2 }}+1 ))
+#       - name: Output
+#         run: echo "::set-output name=SPLIT::$(( ${{ steps.split.outputs._2 }}+1 ))"
+#         id: splitno
+#       - name: Check no
+#         run: echo ${{ steps.splitno.outputs.SPLIT }}
+#       - uses: actions/checkout@v2
+#         with: 
+#           path: './'      
+#       - run: |          
+#           echo "`jq '.base_config[0].value="${{ steps.split1.outputs._0 }}-${{ steps.splitalpha.outputs.SPLIT_ALPHA }}"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json
+#           echo "`jq '.base_config[1].value="${{ steps.split.outputs._0 }}.${{ steps.split.outputs._1 }}.${{ steps.splitno.outputs.SPLIT }}"' ./generator/services/configurationmanager/src/assests/configuration.json `" > ./generator/services/configurationmanager/src/assests/configuration.json 
           
-      - name: arun
-        uses: EndBug/add-and-commit@v6
-        with:
-          message: 'Add the version and date'
-          add: './generator/services/configurationmanager/src/assests/configuration.json --force'
-          cwd: './' 
-          token: ${{ secrets.TOKEN }} 
+#       - name: arun
+#         uses: EndBug/add-and-commit@v6
+#         with:
+#           message: 'Add the version and date'
+#           add: './generator/services/configurationmanager/src/assests/configuration.json --force'
+#           cwd: './' 
+#           token: ${{ secrets.TOKEN }} 
       
